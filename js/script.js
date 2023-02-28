@@ -18,13 +18,13 @@ form.addEventListener('submit', (e) => {
         return;
     }
 
-    if(!isPasswordValid(passwordInput.value)){
-        alert('A senha precisa no mínimo 8 dígitos.');
-        return;
+    if(passwordInput.value.length <= 7){
+        alert('por favor a senha precisa ter mais de 7 digitos')
+       return
     }
-
-
+   
     form.submit()
+    
 });
 
 function isEmailValid(email){
@@ -41,10 +41,4 @@ function isEmailValid(email){
     
 }
 
-function isPasswordValid(pwd, minDigits){
-    if(pwd.lengh >= minDigits){
-        return true;
-    }
 
-    return false
-}
