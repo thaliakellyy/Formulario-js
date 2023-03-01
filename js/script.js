@@ -1,44 +1,63 @@
-const form = document.querySelector('#form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const jobSelect = document.querySelector('#job');
-const messageTextarea = document.querySelector('#message');
+const form = document.getElementById('form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const passwordTwo = document.getElementById('password-two');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-
-    if(nameInput.value === ''){
-        alert('Por favor digite seu nome.');
-        return
-    }
-
-    if(emailInput === '' || !isEmailValid(emailInput.value)){
-        alert('Por favor digite seu E-mail.');
-        return;
-    }
-
-    if(passwordInput.value.length <= 7){
-        alert('por favor a senha precisa ter mais de 7 digitos')
-       return
-    }
-   
-    form.submit()
-    
+    checkInput()
 });
 
-function isEmailValid(email){
-    const emailRegex = new RegExp(
-        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}$/
+function checkInput(){
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const passwordTwoValue = passwordTwo.value.trim();
 
-    );
-
-    if(emailRegex.test(email)){
-        return true;
+    if(usernameValue === '' ){
+        validationError(username, 'Preencha esse campo');
+    }else{
+        validationSuccess(username)
     }
+
+    if(emailValue === '' ){
+        validationError(email, 'Preencha esse campo');
+    }else{
+        validationSuccess(email)
+    }
+
+    if(passwordValue === '' ){
+        validationError(password, 'Preencha esse campo');
+    }else{
+        validationSuccess(password)
+    }
+
+    if(passwordTwoValue === '' ){
+        validationError(passwordTwo, 'Preencha esse campo');
+    }else{
+        validationSuccess(passwordTwo)
+    }
+
     
-    return false;
-    
+
+
+
+
+}
+
+function validationError(input, msg){
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small')
+
+    small.innerText = msg
+    formControl.className = 'form-control error';
+    console.log(formControl)
+}
+
+function validationSuccess(input){
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success'
 }
 
 
