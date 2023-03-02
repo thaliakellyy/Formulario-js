@@ -21,7 +21,8 @@ body {
     background: linear-gradient(to right,#D1c6f3 ,#e9bcac ); 
     border-radius: 5px;
     border: 2px solid #7d89bb;
-    width: 28em;
+    width: 27em ;
+    max-width:20em ;
     max-width: 100%;
 }
 
@@ -121,5 +122,15 @@ body {
     transition: 0.3s;
 }
 
+@media(max-width:460px){
+    .container{
+        width: 24em;
+    }
+}
+@media(max-width:360px){
+    .container{
+        width: 21em;
+    }
+}
 
 
