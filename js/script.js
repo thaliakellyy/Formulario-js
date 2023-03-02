@@ -30,7 +30,7 @@ function checkInput(){
     if(passwordValue === '' ){
         validationError(password, 'Preencha esse campo');
         
-    }else if(passwordValue.length <= 7){
+    }else if(passwordValue.length < 8){
         validationError(password, 'Senha precisa ter 8 caracteres');
         
     }else{
@@ -43,6 +43,8 @@ function checkInput(){
     }else if(passwordValue !== passwordTwoValue){
         validationError(passwordTwo, 'A senha precisa ser igual á anterior.');
         
+    }else if(passwordValue.length < 8){
+            validationError(password, 'Senha precisa ter 8 caracteres');
     }else{
         validationSuccess(passwordTwo)
     }

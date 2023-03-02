@@ -127,9 +127,9 @@ body {
         width: 24em;
     }
 }
-@media(max-width:360px){
+@media(max-width:350px){
     .container{
-        width: 21em;
+        width: 20em;
     }
 }
 
